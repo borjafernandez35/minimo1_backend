@@ -6,6 +6,7 @@ import environment from "../environment";
 import { UserRoutes } from "../routes/user";
 import { ActivityRoutes } from "../routes/activity";
 import { CommentRoutes } from "../routes/comment";
+import { FriendRoutes } from "../routes/friend";
 
 class App {
 
@@ -15,14 +16,17 @@ class App {
 
    
    private user_routes: UserRoutes = new UserRoutes();
+   private friend_routes: FriendRoutes = new FriendRoutes();
    private activity_routes: ActivityRoutes = new ActivityRoutes();
    private comment_routes: CommentRoutes = new CommentRoutes();
+   
 
 
    constructor() {
       this.app = express();
       this.config();
       this.mongoSetup();
+      this.friend_routes.route(this.app);
       this.user_routes.route(this.app);
       this.activity_routes.route(this.app);
       this.comment_routes.route(this.app);
