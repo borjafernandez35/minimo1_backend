@@ -15,7 +15,7 @@ export class FriendController {
             // this check whether all the filds were send through the request or not
             if (req.body.namefriend  && req.body.likes && req.body.age){
                 const friend_params:IFriend = {
-                    nameFriend: req.body.,
+                    nameFriend: req.body.nameFriend,
                     age:req.body.age,
                     likes: req.body.likes,
                     state: true
